@@ -1,5 +1,7 @@
+// Paquetes de Next y React
 import NextImg from "next/image"
 
+// Componente principal sin acceso restringido 
 export default function App() {
   return (
     <span className="w-full h-full grid justify-center items-center">

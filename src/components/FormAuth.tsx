@@ -1,16 +1,18 @@
 "use client"
 
 // Paquetes de Next y React
+import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { Resolver, useForm } from "react-hook-form";
 
+// Estados para el componete
 type FormValues = {
   user: string;
   password: string;
 };
 
+// restricciones en el formulario para ingreso
 const resolver: Resolver<FormValues> = async (values) => {
   return {
     values: values.user ? values : {},
@@ -25,15 +27,15 @@ const resolver: Resolver<FormValues> = async (values) => {
   };
 };
 
+// Componente de formulario para ingresar a la sección restringida
 export default function FormAuth() {
+
   const { register, handleSubmit } = useForm<FormValues>({ resolver });
-
   const [error, setError] = useState("");
-
   const router = useRouter();
 
+  // metodo del formulario para acceder
   const handleAuth = async (formdata: FormValues) => {
-
     const ressponse = await signIn("credentials-auth", {
       user: formdata.user,
       password: formdata.password,
@@ -47,6 +49,7 @@ export default function FormAuth() {
       return router.push("/dashboard");
   };
 
+  // metodo del boton para acceder por google
   const handleGoogle = async () => {
     await signIn("google", {
       callbackUrl: "/dashboard",
@@ -63,7 +66,10 @@ export default function FormAuth() {
         className="w-min h-min"
       >
         {
-          error && <div className="bg-red-500 text-white p-2 mb-2">{error}</div>
+          error &&
+          <div className="bg-red-500 text-white p-2 mb-2">
+            {error}
+          </div>
         }
         <h1 className="text-3xl font-bold mb-7">
           Inicio de sesión
@@ -95,7 +101,10 @@ export default function FormAuth() {
           Ingresar
         </button>
       </form>
-      <button onClick={handleGoogle} className="transition-all bg-white hover:bg-gray-200 text-black w-full p-4 mt-4 rounded">
+      <button
+        onClick={handleGoogle}
+        className="transition-all bg-white hover:bg-gray-200 text-black w-full p-4 mt-4 rounded"
+      >
         Acceder con Google
       </button>
     </div>

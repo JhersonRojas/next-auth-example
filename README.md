@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# About this project
+
+This project was made with Nextjs 13 and Next-Auth with the intention of testing its functionalities with the src/app folders and the implementation of server and client components.
+
+## Main libraries used in the project
+
+- Nextjs v13: [Nextjs](https://nextjs.org/)
+- Next-auth v4 [Next-Auth](https://next-auth.js.org/)
+- Tailwindcss [Tailwind](https://tailwindcss.com/)
 
 ## Getting Started
 
@@ -13,6 +21,8 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

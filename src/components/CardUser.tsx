@@ -4,21 +4,20 @@
 import { useSession } from "next-auth/react";
 import NextImg from "next/image";
 
-/* eslint-disable @next/next/no-img-element */
+// Componente para la pagina restringida y enseñar los datos del usuario que ingreso
 export default function CardUser() {
 
+  // estados de la sesión del usuario
   const { data: session } = useSession()
 
+  /* eslint-disable @next/next/no-img-element */
   return (
     <>
       {
         !session?.user
           ? <></>
           :
-          <div
-            className="bg-slate-900 w-[80vw] md:w-[25vw] h-[60vh] px-6 py-8 rounded md:grid"
-          >
-
+          <div className="bg-slate-900 w-[80vw] md:w-[25vw] h-[60vh] px-6 py-8 rounded md:grid">
             <label htmlFor="image" className="text-slate-400 text-center">
               Avatar
               {
@@ -61,7 +60,6 @@ export default function CardUser() {
                 {session.user?.email}
               </h2>
             </label>
-
           </div>
       }
     </>
